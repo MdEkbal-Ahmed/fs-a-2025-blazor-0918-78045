@@ -1,6 +1,6 @@
-﻿using FleetManager.Models;
+﻿using fs_a_2025_blazor_0918_78045.Models;
 
-namespace FleetManager.Data
+namespace fs_a_2025_blazor_0918_78045.Data
 
 {
     public class CarRepository
