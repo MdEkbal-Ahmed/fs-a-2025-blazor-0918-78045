@@ -1,0 +1,47 @@
+﻿@page "/cars"
+@using fs-a-2025-blazor-0918-78045.Models
+@using fs-a-2025-blazor-0918-78045.ModelRepositories
+
+<h3>Fleet of Cars</h3>
+
+@if (cars == null)
+{
+    <p><em>Loading cars...</em></p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Year</th>
+                <th>Color</th>
+                <th>Mileage</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var car in cars)
+            {
+                <tr>
+                    <td>@car.Id</td>
+                    <td>@car.Make</td>
+                    <td>@car.Model</td>
+                    <td>@car.Year</td>
+                    <td>@car.Color</td>
+                    <td>@car.Mileage.ToString("N0") km</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Car> cars;
+
+    protected override void OnInitialized()
+    {
+        cars = CarRepo.GetAllCars();
+    }
+}

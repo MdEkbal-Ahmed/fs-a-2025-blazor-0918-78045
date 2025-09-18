@@ -6,14 +6,27 @@
 <h1>Counter</h1>
 
 <p role="status">Current count: @currentCount</p>
+<p role="status">Your name is @myName</p>
 
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<button class="btn btn-primary" @onclick="IncrementCount">Increment</button>
+<button class="btn btn-primary" @onclick="SetName">Set Name</button>
+<button class="btn btn-primary" @onclick="DecrementCount">Decrement</button>
 
 @code {
     private int currentCount = 0;
+    private string myName = "";
 
     private void IncrementCount()
     {
         currentCount++;
+    }
+
+    private void SetName()
+    {
+        myName = "Md Ekbal at Dorset";
+    }
+    private void DecrementCount()
+    {
+        currentCount--;
     }
 }
